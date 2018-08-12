@@ -1,0 +1,138 @@
+﻿@model List<datab.DB.country>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        input {
+            height: 35px;
+            border: 0px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px 2px;
+            padding: 5px;
+        }
+
+        table {
+            padding: 10px;
+            margin-top: 3em;
+            border-radius: 5%;
+            box-shadow: 2px 2px 2px 2px;
+        }
+
+        tr {
+            padding: 5px;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            padding: 15px;
+            text-align: center;
+        }
+
+        div {
+            background-color: lightblue;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <center>
+        @using (Html.BeginForm("insert", "Home", FormMethod.Post))
+        {
+            <table border="0" style="padding:5px;">
+
+
+                <tr style="border-bottom:1px solid gray;">
+                    <th>Id</th>
+                    <th>Country</th>
+                    <th>Population</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.name</td>
+                        <td>@item.population</td>
+
+                        <td>
+
+                            <button type="button" class="btn btn-primary" onclick="detail(@item.id)"> <span class="glyphicon glyphicon-edit"></span></button>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="sil(@item.id)"> <span class="glyphicon glyphicon-remove"></span></button>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning" onclick="update(@item.id)"> <span class="glyphicon glyphicon-pencil"></span></button>
+
+                        </td>
+                    </tr>
+                }
+
+
+                <tr style="border-top:1px solid gray;">
+
+                    <td>@Model.Capacity</td>
+                    <td>
+                        @Html.TextBox("name")
+                        <!--<input type="text" id="text" /> -->
+                    </td>
+                    <td>
+                        @Html.TextBox("population")
+                        <!---<input type="number" id="number" /> -->
+                    </td>
+                    <td colspan="3" align="center">
+                        <button type="submit" class="btn btn-danger"> <span class="glyphicon glyphicon-plus"></span></button>
+                    </td>
+                    
+                </tr>
+
+
+
+
+            </table>
+        }
+        </center>
+    <script>
+        function insert() {
+            var name = document.getElementById("text").value;
+            var number = document.getElementById("number").value;
+            document.location = 'insert/' + name + '/' + number;
+
+
+
+        }
+        function sil(id){
+
+            document.location = 'sil/'+id;
+        }
+        function detail(id) {
+            document.location = 'detail/' + id;
+        }
+        function update(id) {
+            document.location = 'update/' + id;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+{
+  "name": "repsitoryPattetn",
+  "version": "1.0.0",
+  "main": "karma.conf.js",
+  "private": true,
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:prod": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0"
+  },
+  "description": ""
+}

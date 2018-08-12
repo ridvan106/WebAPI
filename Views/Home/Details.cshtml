@@ -1,0 +1,24 @@
+﻿@model datab.DB.country
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>detail</title>
+</head>
+<body>
+    <center>
+        <h1>@Model.name</h1>
+        <hr />
+        <p>
+            <img src="@Model.flag" style="float:left;margin:10px;" />
+            <br />
+            <span style="margin-left:10px;padding:20px;padding-top:10px;"> @Model.info</span>
+        </p>
+    </center>
+</body>
+</html>

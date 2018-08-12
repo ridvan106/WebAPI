@@ -1,0 +1,59 @@
+﻿@model datab.DB.country
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>detail</title>
+</head>
+<body>
+    <center>
+        <hr />
+        <img src="@Model.flag" style="float:left;margin:10px;" width="250px" height="250px" />
+        <table>
+            <tr>
+                <td> <input id="name" type="text" value="@Model.name" /></td>
+            </tr>
+            <tr>
+                <td> <input id="population"  style="float:left;margin-top:10px;" width="250px" type="number" value="@Model.population" /></td>
+            </tr>
+            <tr>
+
+                <td>
+
+
+
+                    <textarea id="info" style="margin-top:20px;padding:20px;padding-top"> @Model.info</textarea>
+
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="2" align="center">
+                    <button type="button" class="btn btn-danger" onclick="edit()"> <span class="glyphicon glyphicon-edit"></span></button>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    </center>
+    <script>
+        function edit() {
+            var name = document.getElementById("name").value;
+            var number = document.getElementById("population").value;
+            var info = document.getElementById("info").value;
+            document.location = "http://localhost:53913/edit/@Model.id/" + name + "/" + number + "/" + info;
+          
+        }
+    </script>
+</body>
+</html>
