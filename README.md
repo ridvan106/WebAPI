@@ -1,2 +1,3 @@
 # WebAPI
-piworks şirketinde yapılan MVC kullanılarak yapılan web API
+piworks şirketinde MVC ve AngularJs kullanılarak yapılan web API projesi
+e2e ve Unit testler ile beraber
